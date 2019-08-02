@@ -1,0 +1,70 @@
+<html lang="en">
+   <head>
+      <title>Dashboard</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <style>
+      	.histogram_chart {
+      		width: 450px; 
+      		height: 250px;
+      	}
+      	.pie_chart {
+      		width: 450px; 
+      		height: 250px;
+      	}
+  	  </style>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript" src="generate_charts.js"></script>
+      <script type="text/javascript" src="script.js"></script>
+   </head>
+   <body>
+      <nav>
+         <div class="nav-wrapper">
+            <a href="#" class="brand-logo">&nbsp; DevFest</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+               <li><a href="http://gdgrochester.com">Website</a></li>
+               <li><a href="https://sites.google.com/view/devfest2019/home?authuser=0">Organizer Guide</a></li>
+               <li><a href="https://explara.com">Explara</a></li>
+            </ul>
+         </div>
+      </nav>
+      <br>
+      <div class="container">
+
+         <div class="row">
+            <div class="col s4">
+               <div id="gender_chart" class="pie_chart"></div>
+            </div>
+            <div class="col s4">
+               <div id="food_chart" class="histogram_chart"></div>
+            </div>
+            <div class="col s4">
+               <div id="tshirt_chart" class="histogram_chart"></div>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col s4">
+               <div id="profession_chart" class="pie_chart"></div>
+            </div>
+            <div class="col s4">
+               <div id="topics_chart" class="histogram_chart"></div>
+            </div>
+            <div class="col s4">
+               <div id="promo_code_chart" class="histogram_chart"></div>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col s4">
+               <div id="referral_chart" class="pie_chart"></div>
+            </div>
+            
+         </div>
+
+         
+      </div>
+   </body>
+</html>
