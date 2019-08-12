@@ -9,7 +9,7 @@ const referralKey = 'How did you hear about this event?';
 
 $.ajax({
     type: 'GET',
-    url: "https://104.154.16.247:5000/get_attendees",
+    url: "http://localhost:5000/get_attendees",
     contentType: 'application/json',
     dataType: 'json',
     success: function(data) {
@@ -28,14 +28,21 @@ profession = new Map();
 referral = new Map();
 
 function extract_data(response) {
-    for (i = 0; i < response.attendee.length; i++) {
-        get_food_data(response.attendee[i].attendee[0].details);
-        get_gender_data(response.attendee[i].attendee[0].details);
-        get_tshirt_data(response.attendee[i].attendee[0].details);
-        get_topics_data(response.attendee[i].attendee[0].details);
-        get_profession_data(response.attendee[i].attendee[0].details);
-        get_referral_data(response.attendee[i].attendee[0].details);
-    }
+    Object.keys(response.attendee).forEach(function(key){
+        get_food_data(response.attendee[key].attendee[0].details);
+        get_gender_data(response.attendee[key].attendee[0].details);
+        get_tshirt_data(response.attendee[key].attendee[0].details);
+        // get_topics_data(response.attendee[key].attendee[0].details);
+        get_profession_data(response.attendee[key].attendee[0].details);
+        get_referral_data(response.attendee[key].attendee[0].details);
+    });
+
+    draw_charts();
+}
+
+function draw_charts() {
+
+
 
     // Draw Food Chart
     var foodData = new google.visualization.DataTable();
@@ -138,12 +145,7 @@ function extract_data(response) {
     var genderChart = new google.visualization.PieChart(document.getElementById('gender_chart'));
     genderChart.draw(genderData, genderOptions);
 
-    // console.log(foodPreferences);
-    // console.log(gender);
-    // console.log(tshirt);
-    // console.log(topics);
-    // console.log(profession);
-    // console.log(referral);
+    
 }
 
 function get_food_data(attendee) {
