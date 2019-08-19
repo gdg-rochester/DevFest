@@ -9,14 +9,14 @@ const referralKey = 'How did you hear about this event?';
 
 $.ajax({
     type: 'GET',
-    url: "http://localhost:5000/get_attendees",
+    url: "http://104.154.16.247:5000/get_attendees",
     contentType: 'application/json',
     dataType: 'json',
     success: function(data) {
         console.log(data);
         $.ajax({
             type: 'GET',
-            url: "http://localhost:5000/get_attendees_2",
+            url: "http://104.154.16.247:5000/get_attendees_2",
             contentType: 'application/json',
             dataType: 'json',
             success: function(data2) {
