@@ -13,12 +13,34 @@ $.ajax({
     contentType: 'application/json',
     dataType: 'json',
     success: function(data) {
-        extract_data(data)
+        console.log(data);
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:5000/get_attendees_2",
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(data2) {
+                console.log(data2);
+                merge_data(data, data2);
+            },
+            error: function(error) {
+                console.log("FAIL 2");
+            }
+        });
     },
     error: function(error) {
-        console.log("FAIL");
+        console.log("FAIL 1");
     }
 });
+
+function merge_data(data1, data2) {
+    Object.keys(data2.attendee).forEach(function(key){
+        data1.attendee.push(data2.attendee[key]);
+    });
+    
+    console.log(data1);
+    extract_data(data1);
+}
 
 foodPreferences = new Map();
 gender = new Map();
