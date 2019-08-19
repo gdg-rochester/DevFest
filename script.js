@@ -7,16 +7,18 @@ const topicsKey = 'What topics would you like to have at DevFest ?';
 const professionKey = 'Which of the following best describes you?';
 const referralKey = 'How did you hear about this event?';
 
+console.log("Hitting");
+
 $.ajax({
     type: 'GET',
-    url: "http://104.154.16.247:5000/get_attendees",
+    url: "http://localhost:5000/get_attendees",
     contentType: 'application/json',
     dataType: 'json',
     success: function(data) {
         console.log(data);
         $.ajax({
             type: 'GET',
-            url: "http://104.154.16.247:5000/get_attendees_2",
+            url: "http://localhost:5000/get_attendees_2",
             contentType: 'application/json',
             dataType: 'json',
             success: function(data2) {
